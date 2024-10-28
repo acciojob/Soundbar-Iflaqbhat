@@ -15,12 +15,12 @@
       font-family: Arial, sans-serif;
     }
     .button-container {
+		  background-color: #9b59b6;
       display: flex;
       gap: 10px;
     }
     .sound-button {
-      background-color: #6a329f;
-      color: white;
+	  color:#9b59b6;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
@@ -32,23 +32,24 @@
 <body>
 
 <div class="button-container" id="buttonContainer">
-</div>
 
-<script>
-  // List of sound labels
-  const sounds = ["applause", "boo", "gasp", "tada", "victory", "wrong", "stop"];
 
-  // Create buttons dynamically and append to the container
-  const buttonContainer = document.getElementById('buttonContainer');
-  sounds.forEach(sound => {
-    const button = document.createElement('button');
-    button.className = 'sound-button';
-    button.innerText = sound;
-    button.onclick = () => alert(`Playing sound: ${sound}`); // Example action on click
-    buttonContainer.appendChild(button);
-  });
-</script>
+    <button class="button button1" onclick="playSound('tada')">applause</button>
+    <button class="button button2" onclick="playSound('wrong')">boo</button>
+    <button class="button button3" onclick="playSound('boo')">gasp</button>
+    <button class="button button4" onclick="playSound('applause')">tada</button>
+    <button class="button button5" onclick="playSound('cheer')">victory</button>
+    <button class="button button6" onclick="playSound('fail')">wrong</button>
+    <button class="button button7" onclick="playSound('win')">stop</button>
+
 
 </body>
+
+<script>
+        function playSound(soundName) {
+            const audio = new Audio(`sounds/${soundName}.mp3`); // Update the path as necessary
+            audio.play();
+        }
+    </script>
 </html>
 
